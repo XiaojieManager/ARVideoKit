@@ -44,15 +44,15 @@ struct RenderAR {
         
         if let contentMode = ARcontentMode {
             switch contentMode {
-            case .auto:
+            case .auto?:
                 if UIScreen.main.isiPhone10 {
                     width = Int(UIScreen.main.nativeBounds.width)
                     height = Int(UIScreen.main.nativeBounds.height)
                 }
-            case .aspectFit:
+            case .aspectFit?:
                 width = CVPixelBufferGetWidth(raw)
                 height = CVPixelBufferGetHeight(raw)
-            case .aspectFill:
+            case .aspectFill?:
                 width = Int(UIScreen.main.nativeBounds.width)
                 height = Int(UIScreen.main.nativeBounds.height)
             default:
